@@ -1,0 +1,39 @@
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.dish-name {
+    flex-grow: 1;
+}
+
+.dish-price {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.menu-container {
+    max-width: 800px;
+    margin: 0 20px;
+    padding: 20px;
+}
+
+.menu-item {
+    margin-bottom: 30px;
+}
+
+.dish-description {
+    font-size: 0.9em;
+    color: #666;  /* TODO: Change color */
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.menu-row {
+    margin-bottom: 25px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
