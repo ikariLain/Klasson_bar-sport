@@ -42,21 +42,34 @@
         
 
         <div class="booking-form">
-            <form action="booking.js" method="post">
+            <form id="bookingForm" onsubmit="return validateBooking(event)">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" required>
+                
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" required>
+                
                 <label for="phone">Phone:</label>
                 <input type="tel" name="phone" id="phone" required>
+                
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date" required>
+                
                 <label for="time">Time:</label>
-                <input type="time" name="time" id="time" required>
+                <input type="time" name="time" id="time" min="11:00" max="13:00" required>
+                
                 <label for="guests">Guests:</label>
-                <input type="number" name="guests" id="guests" required>
+                <input type="number" name="guests" id="guests" min="1" max="20" required>
+                
+                <label for="room">Room:</label>
+                <select name="room" id="room" required>
+                    <option value="standard">Standard Room</option>
+                    <option value="multiscreen">Multiscreen Room (max 10 personer)</option>
+                </select>
+                
                 <input type="submit" value="Book">
             </form>
+            <div id="bookingMessage"></div>
         </div>
 
     </main>
