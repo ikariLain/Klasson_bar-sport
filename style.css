@@ -8,13 +8,16 @@
 /* Root variables */
 :root {
     /* Colors */
-    --primary-bg: rgb(8, 17, 70);   
+    --primary-bg: rgb(5, 12, 53);   
     --primary-text-color: rgb(255, 255, 255);
 
-    --secondary-bg: #2d8515;  
+    --secondary-bg: #dae4d7;  
     --secondary-text-color: #ffffff;
 
     --border-color: #ffffff;
+
+    --white-text: #ffffff;
+    --pseudobakground: green;
 
     /* Define fix font-size for computer and mobile view */
     --font-size-s: 0.9rem;
@@ -44,12 +47,7 @@ html, body {
     color: var(--primary-text-color);
     background-color: var(--primary-bg);
     min-height: 100vh;
-    /* Reserves space for the scrollbar even when it's not visible so the content stay fixed in viewport */
     scrollbar-gutter: stable;
-}
-
-main {
-    z-index: 1;
 }
 
 body {
@@ -58,10 +56,19 @@ body {
     min-height: 100vh;
 }
 
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: calc(100vh - 10vh - 20vh);
+    z-index: 1;
+}
+
 /* Welcome banner styles */
 .welcome-banner {
     text-align: center;
-    padding: 2rem 1rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
 }
 
@@ -76,29 +83,43 @@ body {
     opacity: 1;  
 }
 
-/* Main content grid layout */
-.main-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 0 2rem;
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-}
-
 /* Promotions column styles */
 .promotions-column {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--site-max-width);
+    padding: 2rem 2rem;
 }
 
 .promo-card {
     background: rgba(38, 42, 64, 0.85);
-    padding: 2rem;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.promo-card .sports-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+    transition: transform var(--transition-time);
+}
+
+.promo-card .card-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .promo-card h2 {
@@ -122,14 +143,13 @@ body {
 }
 
 .match-item {
-    margin: 1rem 0;
     padding: 0.5rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .match-date {
-    color: var(--secondary-bg);
-    font-size: var(--font-size-s);
+    color: var(--white-text);
+    font-size: var(--font-size-n);
     margin-bottom: 0.3rem;
 }
 
@@ -137,37 +157,9 @@ body {
     font-size: var(--font-size-m);
 }
 
-/* Sports images column styles */
-.sports-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.sports-image {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform var(--transition-time);
-    border: #ffffff solid 1px;
-    width: 400px;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.sports-image:hover {
-    transform: scale(1.02);
-}
-
-/* Index container styles */
-.index-container {
-    position: relative;
-    min-height: calc(100vh - 20vh);
-    width: 100%;
-}
-
 /* Background image styles */
 .centered-logo {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -180,24 +172,15 @@ body {
 }
 
 .centered-logo img {
-    max-width: 80%;
-    max-height: 80vh;
+    max-width: 95%;
+    max-height: 85vh;
     opacity: 0.3;
-    object-fit: contain;
 }
+
 /* Header styles */
 header {
     flex-shrink: 0;
     height: 10vh;
-}
-
-/* Main content styles */
-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: calc(100vh - 10vh - 20vh); /* Viewport - header - footer */
 }
 
 /* Footer styles */
@@ -221,8 +204,8 @@ main {
 }
 
 .footer-heading {
+    color: var(--white-text);
     font-size: var(--font-size-n);
-    color: var(--secondary-bg);
 }
 
 .footer p {
@@ -243,7 +226,7 @@ main {
 }
 
 .social-link:hover {
-    color: var(--secondary-bg);
+    color: var(--pseudobakground);
 }
 
 .copyright {
@@ -262,7 +245,7 @@ a {
     text-decoration: none;
 }
 
-/*  Navbar styling */
+/* Navbar styling */
 .section-content {
     margin: 0 auto;
     max-width: var(--site-max-width);
@@ -297,12 +280,11 @@ header .navbar {
 
 .navbar .nav-menu .nav-link:hover {
     color: var(--secondary-text-color);
-    background: var(--secondary-bg);
+    background: var(--pseudobakground);
 }
 
 .navbar #menu-close-button,
 .navbar #menu-open-button {
-    /* Hide menu buttons by default. Switch by a bool media query */
     display: none;
     color: var(--text-color-white);
     background: transparent;
@@ -310,173 +292,7 @@ header .navbar {
     font-size: var(--font-size-l);
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .main-content-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-
-    .welcome-banner h1 {
-        font-size: var(--font-size-xl);
-    }
-
-    .welcome-banner p {
-        font-size: var(--font-size-n);
-    }
-
-    .sports-gallery {
-        gap: 1rem;
-    }
-
-    /* Navigation menu for mobile */
-    .navbar #menu-close-button {
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 30px;
-        font-size: var(--font-size-l);
-        color: var(--primaty-text-color);
-    }
-
-    .navbar #menu-open-button {
-        display: block;
-        font-size: var(--font-size-xl);
-        background-color: var(--primary-bg);
-    }
-    
-    .navbar .nav-menu {
-        position: fixed;
-        left: -300px;
-        top: 0;
-        width: 300px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 100px;
-        background: rgb(2, 67, 2);  
-        transition: left var(--transition-time) ease;
-        z-index: 101;
-    }
-    
-    .nav-item {
-        color: #ffffff;
-    }
-
-    body.show-mobile-menu .navbar .nav-menu {
-        left: 0;
-    }
-    
-    .navbar .nav-menu .nav-link {
-        color: white;
-        display: block;
-        margin-top: 17px;
-        font-size: var(--font-size-lg);
-    }
-}
-
-@media (max-width: 800px) {
-    .footer {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 1.5rem;
-    }
-
-    .footer-section {
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 2rem;
-        align-items: center;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 500px) {
-    .footer {
-        padding: 1.5rem 1rem;
-    }
-
-    .footer-heading {
-        font-size: var(--font-size-n);
-    }
-
-    .footer p {
-        font-size: var(--font-size-s);
-    }
-
-    .social-link {
-        font-size: var(--font-size-m);
-    }
-
-    .button-home {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .btn-box {
-        display: block;  
-        margin: 0 auto;     
-    }
-
-    .descriptions {
-        margin: 20px 0 30px;
-    }
-    
-    .button-home {
-        margin: 1.5rem 0;
-    }
-    
-    .button-home a {
-        margin-right: 15px;
-        height: 2rem;
-        width: 2rem;
-    }
-    
-    /* Centrera formuläret */
-    main .booking-form {
-        padding: 2rem;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
-        width: 90%;
-        max-width: 400px;
-        margin: 2rem auto;
-        position: relative;
-    }
-    
-    /* Styla formuläret */
-    .booking-form form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-    
-    .booking-form input,
-    .booking-form label {
-        color: var(--primary-bg);
-    }
-    
-    .booking-form input[type="submit"] {
-        background: var(--secondary-bg);
-        color: var(--secondary-text-color);
-        cursor: pointer;
-        border: none;
-        padding: 0.8rem;
-        font-size: var(--font-size-n);
-        transition: var(--transition-time);
-    }
-    
-    .booking-form input[type="submit"]:hover {
-        opacity: 0.9;
-    }
-}
-
+/* Booking form styles */
 .booking-form {
     padding: 3rem;
     background: rgba(255, 255, 255, 0.95);
@@ -531,4 +347,112 @@ header .navbar {
     background: #35a017;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(62, 182, 29, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .welcome-banner h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .welcome-banner p {
+        font-size: var(--font-size-n);
+    }
+
+    /* Navigation menu for mobile */
+    .navbar #menu-close-button {
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        font-size: var(--font-size-l);
+        color: var(--primary-text-color);
+    }
+
+    .navbar #menu-open-button {
+        display: block;
+        font-size: var(--font-size-xl);
+        background-color: var(--primary-bg);
+    }
+    
+    .navbar .nav-menu {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        background: rgb(2, 67, 2);  
+        transition: left var(--transition-time) ease;
+        z-index: 101;
+    }
+    
+    .nav-item {
+        color: #ffffff;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+    }
+    
+    .navbar .nav-menu .nav-link {
+        color: white;
+        display: block;
+        margin-top: 17px;
+        font-size: var(--font-size-m);
+    }
+
+    .promotions-column {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .footer-section {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .promotions-column {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-heading {
+        font-size: var(--font-size-n);
+    }
+
+    .footer p {
+        font-size: var(--font-size-s);
+    }
+
+    .social-link {
+        font-size: var(--font-size-m);
+    }
+
+    .booking-form {
+        padding: 2rem;
+        width: 90%;
+    }
 }
