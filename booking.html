@@ -1,19 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="booking.html">booking</a>
-            <li><a href="news.html">Nyheter</a></li>    
-        </ul>
-    </nav>
-</body>
-</html>
+    <meta name="description" content=" ?? ?? ">
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Slabo+27px&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar section-content">
+                <a href="#" class="nav-logo">
+                    <img class="img-logo" src="assets/jb-logo1.png" alt="initials logo">
+                </a>
+                <ul class="nav-menu">
+                    <button id="menu-close-button" class="fas fa-times"></button>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="booking.html" class="nav-link">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                </ul>
+                <button id="menu-open-button" class="fas fa-bars"></button>
+            </nav>
+        </header>
+    <main>
+        
+
+        <div class="booking-form">
+            <form action="booking.js" method="post">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" required>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" required>
+                <label for="time">Time:</label>
+                <input type="time" name="time" id="time" required>
+                <label for="guests">Guests:</label>
+                <input type="number" name="guests" id="guests" required>
+                <input type="submit" value="Book">
+            </form>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-socialmedia">
+            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique aliquid debitis rerum soluta explicabo</h4>
+        </div>
+        <!-- Copyright -->
+        <div class="mid-footer">
+            <p class="copyright">All rights reserved</p>
+        </div>
+        <div>
+            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique aliquid debitis rerum soluta explicabo</h4>
+        </div>
+    </footer>
+    </body>
+    </html>
