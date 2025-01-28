@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=" ?? ?? ">
+    <meta name="description" content="Välkommen till Johan Sport & Bar - Din destination för sport och underhållning i Lund">
     <title>Johan | Sport & Bar</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;400;700;900&display=swap" rel="stylesheet">
@@ -12,47 +12,102 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Header / Navbar -->
+    <!-- Header / Navbar -->
     <header>
         <nav class="navbar section-content">
-            <a href="#" class="nav-logo">
-                <img class="img-logo" src="assets/jb-logo1.png" alt="initials logo">
+            <a href="index.html" class="nav-logo">
+                <img class="img-logo" src="assets/karlson-remove-bg.png" alt="Johan Sport & Bar logotyp">
             </a>
             <ul class="nav-menu">
                 <button id="menu-close-button" class="fas fa-times"></button>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="news.html" class="nav-link">Nyheter</a>
                 </li>
                 <li class="nav-item">
-                    <a href="booking.html" class="nav-link">Booking</a>
+                    <a href="booking.html" class="nav-link">Bokning</a>
                 </li>
                 <li class="nav-item">
-                    <a href="news.html" class="nav-link">News</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">Om oss</a>
                 </li>
             </ul>
             <button id="menu-open-button" class="fas fa-bars"></button>
         </nav>
     </header>
-    <!-- Main Content -->
-    <main>
 
+    <!-- Main Content -->
+    <main class="index-container">
+        <div class="centered-logo">
+            <img src="assets/karlson-logo.jpg" alt="Johan Sport & Bar logo">
+        </div>
+
+        <div class="welcome-banner">
+            <h1>Välkommen till Johan Sport & Bar</h1>
+            <p>Din destination för sport, god mat och trevlig atmosfär i Lund</p>
+        </div>
+        
+        <div class="main-content-grid">
+            <!-- left Column -->
+            <section class="promotions-column">
+                <div class="promo-card">
+                    <h2>Happy Hour</h2>
+                    <p>Måndag-Fredag 15:00-18:00</p>
+                    <ul class="promo-list">
+                        <li>Öl från ?:-</li>
+                        <li>Husets vin ?:-</li>
+                        <li>Utvalda smårätter ?:-</li>
+                    </ul>
+                </div>
+
+                <div class="promo-card">
+                    <h2>Kommande Matcher</h2>
+                    <div class="upcoming-matches">
+                        <div class="match-item">
+                            <p class="match-date">Lördag 20:45</p>
+                            <p class="match-teams">Manchester United - Liverpool</p>
+                        </div>
+                        <div class="match-item">
+                            <p class="match-date">Söndag 17:30</p>
+                            <p class="match-teams">Real Madrid - Barcelona</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="promo-card">
+                    <h2>Event</h2>
+                    <p>Quiz-kväll varje onsdag från 19:00</p>
+                    <p>Sportlovs-event: Vecka 9</p>
+                </div>
+            </section>
+            <!-- Sports Images Column -->
+            <section class="sports-column">
+                <div class="sports-gallery">
+                    <img src="assets/fotbollskärm.jpeg" alt="football" class="sports-image">
+                    <img src="assets/hockey.jpeg" alt="hockey" class="sports-image">
+                    <img src="assets/os.jpeg" alt="os" class="sports-image">
+                </div>
+            </section>
+        </div>
     </main>
-    <footer>
-        <div class="footer-socialmedia">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique aliquid debitis rerum soluta explicabo</h4>
+    <!-- Footer area -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4 class="footer-heading">Sociala medier</h4>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
-        <!-- Copyright -->
-        <div class="mid-footer">
-            <p class="copyright">All rights reserved</p>
+        <div class="footer-section">
+            <h4 class="footer-heading">Öppettider</h4>
+            <p>Mån-sön: 11:00 - 23:00</p>
+            <p class="copyright">&copy; 2025 Johan Sport & Bar. Alla rättigheter förbehållna</p>
         </div>
-        <div>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et similique aliquid debitis rerum soluta explicabo</h4>
+        <div class="footer-section">
+            <h4 class="footer-heading">Kontakt</h4>
+            <p>Botusplatsen, Lund</p>
+            <p>Tel: 046-123-11-11</p>
+            <p>Email: info@johanbar.se</p>
         </div>
     </footer>
 </body>

@@ -14,3 +14,9 @@ Johan klason (Grundare och ägare för Klason Bar och Sport)
 - Övriga idéer tas emot! 
 - Dynamiskt hemsida! 
 - Använder ej sociala medier (ej stängt dörren)
+
+- slå ihop about ooch contact
+- få med en karta i about/contact för att hitta oss
+
+-index.html 
+-- happy hour/kampanj/event
